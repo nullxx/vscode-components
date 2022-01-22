@@ -1,6 +1,6 @@
 {
   "name": "vscode-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [],
   "description": "",
   "main": "dist/index.min.js",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
-    "build": "tsc && rollup -c rollup.config.js && yarn make:docs",
+    "build": "tsc && cross-env NODE_ENV=production rollup -c rollup.config.js && yarn make:docs",
     "make:docs": "typedoc",
     "test": "jest --coverage",
     "deploy": "gh-pages -d docs"

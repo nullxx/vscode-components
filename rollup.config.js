@@ -8,27 +8,29 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default {
   input: `src/index.tsx`,
   output: [
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: !isProduction,
       plugins: [terser()],
       exports: 'auto',
     },
     {
       file: pkg.module,
       format: 'es',
-      sourcemap: true,
+      sourcemap: !isProduction,
       plugins: [terser()],
       exports: 'auto',
     },
     {
       file: 'dist/index.js',
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: !isProduction,
       exports: 'auto',
     },
   ],
