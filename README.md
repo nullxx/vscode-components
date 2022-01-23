@@ -15,8 +15,7 @@ yarn add vscode-components
 
 ## Usage
 
-
-## API / Props
+Read the [wiki](/wiki/) for more information.
 
 
 ## License
