@@ -15,7 +15,7 @@ yarn add vscode-components
 
 ## Usage
 
-Read the [wiki](../../wiki) for more information.
+Read the [wiki](https://github.com/nullxx/vscode-components/wiki) for more information.
 
 
 ## License
