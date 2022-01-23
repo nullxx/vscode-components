@@ -1,6 +1,6 @@
 {
   "name": "vscode-components",
-  "version": "0.1.7",
+  "version": "0.1.6",
   "keywords": [],
   "description": "",
   "main": "dist/index.min.js",

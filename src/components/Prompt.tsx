@@ -10,9 +10,9 @@ import * as style from '../styles/prompt.style';
 
 // TODO: IN PROGRESS https://sh.nullx.me/rilez
 const Prompt: React.FC = (props) => {
-  const promptInputRef = React.createRef<HTMLInputElement>();
-  const promptOKRef = React.createRef<HTMLButtonElement>();
-  const promptCancelRef = React.createRef<HTMLButtonElement>();
+  const promptInputRef = React.useRef<HTMLInputElement>(null);
+  const promptOKRef = React.useRef<HTMLButtonElement>(null);
+  const promptCancelRef = React.useRef<HTMLButtonElement>(null);
 
   const [showOverlay, setShowOverlay] = React.useState(false);
   const [showContainerAbs, setShowContainerAbs] = React.useState(false);
@@ -102,7 +102,7 @@ const Prompt: React.FC = (props) => {
           <input
             ref={promptInputRef}
             css={style.promptInputStyle}
-            value={defaultV}
+            defaultValue={defaultV}
             placeholder={placeholder}
           />
           <div css={style.promptButtonsStyle}>

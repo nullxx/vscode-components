@@ -7,8 +7,9 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
+import size from 'rollup-plugin-size';
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = !process.env.ROLLUP_WATCH;
 
 export default {
   input: `src/index.tsx`,
@@ -59,5 +60,7 @@ export default {
     commonjs(),
     // Resolve source maps to the original source
     sourceMaps(),
+    // about package size
+    size({ writeFile: false }),
   ],
 };
