@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react'; // to avoid unused var
-import React from 'react';
+import { jsx } from '@emotion/react';
+import { useRef, useState } from 'react';
+import propTypes from 'prop-types';
 import PromptContext, {
   PromptContextValue,
   PromptShowOptions,
@@ -8,21 +9,20 @@ import PromptContext, {
 } from '../contexts/PromptContext';
 import * as style from '../styles/prompt.style';
 
-// TODO: IN PROGRESS https://sh.nullx.me/rilez
 const Prompt: React.FC = (props) => {
-  const promptInputRef = React.useRef<HTMLInputElement>(null);
-  const promptOKRef = React.useRef<HTMLButtonElement>(null);
-  const promptCancelRef = React.useRef<HTMLButtonElement>(null);
+  const promptInputRef = useRef<HTMLInputElement>(null);
+  const promptOKRef = useRef<HTMLButtonElement>(null);
+  const promptCancelRef = useRef<HTMLButtonElement>(null);
 
-  const [showOverlay, setShowOverlay] = React.useState(false);
-  const [showContainerAbs, setShowContainerAbs] = React.useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [showContainerAbs, setShowContainerAbs] = useState(false);
 
-  const [title, setTitle] = React.useState('');
-  const [desc, setDesc] = React.useState('');
-  const [defaultV, setDefaultV] = React.useState('');
-  const [placeholder, setPlaceholder] = React.useState('');
-  const [okTitle, setOkTitle] = React.useState('');
-  const [cancelTitle, setCancelTitle] = React.useState('');
+  const [title, setTitle] = useState('');
+  const [desc, setDesc] = useState('');
+  const [defaultV, setDefaultV] = useState('');
+  const [placeholder, setPlaceholder] = useState('');
+  const [okTitle, setOkTitle] = useState('');
+  const [cancelTitle, setCancelTitle] = useState('');
 
   const promptShow = async ({
     title,
@@ -118,6 +118,10 @@ const Prompt: React.FC = (props) => {
       {props.children}
     </PromptContext.Provider>
   );
+};
+
+Prompt.propTypes = {
+  children: propTypes.node,
 };
 
 export default Prompt;
