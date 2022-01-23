@@ -19,7 +19,6 @@ const Prompt: React.FC = (props) => {
 
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
-  const [defaultV, setDefaultV] = useState('');
   const [placeholder, setPlaceholder] = useState('');
   const [okTitle, setOkTitle] = useState('');
   const [cancelTitle, setCancelTitle] = useState('');
@@ -72,7 +71,7 @@ const Prompt: React.FC = (props) => {
 
       setTitle(title);
       setDesc(message);
-      setDefaultV(defaultValue);
+      promptInputRef.current.value = defaultValue; // to reset value
       setPlaceholder(placeholder);
       setOkTitle(buttonOKTitle);
       setCancelTitle(buttonCancelTitle);
@@ -102,7 +101,6 @@ const Prompt: React.FC = (props) => {
           <input
             ref={promptInputRef}
             css={style.promptInputStyle}
-            defaultValue={defaultV}
             placeholder={placeholder}
           />
           <div css={style.promptButtonsStyle}>
